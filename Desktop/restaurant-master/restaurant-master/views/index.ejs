@@ -1,0 +1,238 @@
+<%- include('base/header') -%>
+
+<header class="header" id="home">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"
+        ><span class="text-info font-weight-bold">CSI</span>FOOD</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#home">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">A propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#chefs">Chefs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Menus">Menus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#reserve"
+              >Appel Maintenant! 696 886 292
+              <span class="reserve"> Reserver une table</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="users/login"
+              >Connexion <span class="reserve">Personnel</span></a
+            >
+          </li>
+          <% if (user) { %>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/users/profile"
+              >Profile
+              <img
+                src="<%= '/img/' + user.avatar %>"
+                class="rounded-circle"
+                style="width: 32px; height: 30px"
+                alt="..."
+              />
+            </a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron" style="background-color: #0d122fa3; height: 100%">
+    <div class="m-5" style="position: relative; top: 8vw">
+      <p
+        class="display-2 lead text-white text-center"
+        style="border-bottom: 1px solid #007bff"
+      >
+        CSI <span class="text-info font-weight-bold">F</span>OOD
+      </p>
+      <p class="lead text-white text-center">PRÊT À ÊTRE OUVERT</p>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="m-5">
+  <div class="container">
+    <div class="row bg-white">
+      <div class="col-lg-6 mx-auto mt-3">
+        <h4 class="m-3">Bienvenue chez CSI Food</h4>
+        <p class="parag text-left m-3">
+          notre restaurant propose une cuisine raffinée et rapide pour
+          satisfaire tous les goûts et répondre aux besoins des clients pressés.
+          Nous sommes fiers de servir des plats savoureux et de qualité
+          supérieure dans un environnement chaleureux et accueillant.
+        </p>
+        <p class="parag text-left m-3">
+          Nous sommes spécialisés dans les plats raffinés tels que les steaks
+          tendres, les fruits de mer frais et les salades croquantes, tous
+          préparés avec des ingrédients de la plus haute qualité. Notre équipe
+          de chefs expérimentés travaille dur pour vous offrir des plats
+          délicieux qui combinent saveur et qualité.
+        </p>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <img src="img/about.jpg" class="card-img-top" alt="..." />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="chefs" class="m-5">
+  <div class="container">
+    <div class="row bg-white">
+      <div class="col-lg-12 mx-auto mb-2">
+        <h4 class="text-center mt-4">Rencontrer nos chefs</h4>
+        <p class="card-text text-center">
+          <small class="text-muted">ILS SONT AGRÉABLES ET AMICAUX</small>
+        </p>
+        <div class="card-group">
+          <div class="card m-2 hovereffect">
+            <img src="sys/chef-1.jpg" class="card-img-top" alt="..." />
+            <div class="overlay">
+              <h2>Ibrahim</h2>
+              <a class="info" href="#">link</a>
+            </div>
+          </div>
+          <div class="card m-2 hovereffect">
+            <img src="sys/chef-2.jpg" class="card-img-top" alt="..." />
+            <div class="overlay">
+              <h2>Stephan</h2>
+              <a class="info" href="#">link</a>
+            </div>
+          </div>
+          <div class="card m-2 hovereffect">
+            <img src="sys/chef-3.jpg" class="card-img-top" alt="..." />
+            <div class="overlay">
+              <h2>Robert</h2>
+              <a class="info" href="#">link</a>
+            </div>
+          </div>
+          <div class="card m-2 hovereffect">
+            <img src="sys/chef-4.jpg" class="card-img-top" alt="..." />
+            <div class="overlay">
+              <h2>Krimo</h2>
+              <a class="info" href="#">link</a>
+            </div>
+          </div>
+          <div class="card m-2 hovereffect">
+            <img src="sys/chef-5.jpg" class="card-img-top" alt="..." />
+            <div class="overlay">
+              <h2>Christian</h2>
+              <a class="info" href="#">link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="Menus" class="m-5">
+  <div class="container">
+    <div class="row bg-white">
+      <div class="col-lg-12 mx-auto">
+        <h4 class="text-center mt-4">Nos Menus</h4>
+        <p class="card-text text-center">
+          <small class="text-muted">L'HEURE DU THÉ ET LE DÎNER</small>
+        </p>
+        <div class="col-lg-12 mx-auto mt-3">
+          <div class="d-flex flex-row bd-highlight justify-content-center">
+            <div class="bd-highlight hovereffect">
+              <img src="sys/menu-1.jpg" class="h-100 w-100" alt="..." />
+              <div class="overlay">
+                <h2>Ester de caviar</h2>
+              </div>
+            </div>
+            <div class="bd-highlight hovereffect">
+              <img src="sys/menu-2.jpg" class="h-100 w-100" alt="..." />
+              <div class="overlay">
+                <h2>steaks tendres</h2>
+              </div>
+            </div>
+            <div class="bd-highlight hovereffect">
+              <img src="sys/menu-3.jpg" class="h-100 w-100" alt="..." />
+              <div class="overlay">
+                <h2>Desserts</h2>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-row bd-highlight justify-content-center">
+            <div class="bd-highlight hovereffect">
+              <img src="sys/menu-4.jpg" class="h-100 w-100" alt="..." />
+              <div class="overlay">
+                <h2>Salades</h2>
+              </div>
+            </div>
+            <div class="bd-highlight hovereffect">
+              <img src="sys/menu-5.jpg" class="h-100 w-100" alt="..." />
+              <div class="overlay">
+                <h2>Rouleau de printemps</h2>
+              </div>
+            </div>
+            <div class="bd-highlight hovereffect">
+              <img src="sys/chef-6.jpg" class="h-100 w-100" alt="..." />
+              <div class="overlay">
+                <h2>Ibrahim</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="reserve" class="bg-white">
+  <hr />
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-sm">
+        <h4 class="mb-3">Trouve nous</h4>
+        <p class="parag text-left">Bonanjo rue njon njon</p>
+        <p class="parag text-left">Douala</p>
+        <p class="parag text-left">Cameroun</p>
+      </div>
+      <div class="col-sm">
+        <h4 class="mb-3">Heures d'ouverture</h4>
+        <p class="parag text-left">Lundi : Fermé</p>
+        <p class="parag text-left">Du mardi au vendredi | 7h00 - 21h00</p>
+        <p class="parag text-left">Samedi - Dimanche | 11:00 - 22:00</p>
+      </div>
+      <div class="col-sm">
+        <h4 class="mb-3">Reservation</h4>
+        <p class="parag text-left">696-886-292 | 673-888-210</p>
+        <p class="parag text-left">dnguetcheu@gmail.com</p>
+        <p class="parag text-left">LINE: test</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <p class="m-5 parag text-center">Copyright &copy; CSI3 DLW 2023</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<%- include('base/footer') -%>

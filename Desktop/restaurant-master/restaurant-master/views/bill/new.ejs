@@ -1,0 +1,142 @@
+<%- include('../base/header') -%> <%- include('../base/navbar') -%>
+<div class="container">
+  <%- include('../base/messages') -%>
+
+  <div class="row mb-4">
+    <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35)">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ol class="navbar-nav">
+          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="/bill/all">Facture</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Nouveau</li>
+        </ol>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-primary btn-sm mr-2 text-light"
+                href="/bill/all"
+                >All</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div
+      class="col-md-12 p-4"
+      style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35)"
+    >
+      <% if(customer != "" && food != "" && waiter != "" && drink != "" && table
+      != "") { %>
+
+      <form action="/bill/new" method="post">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="sub_total">Sous Total</label>
+            <input
+              type="text"
+              name="sub_total"
+              id="sub_total"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="vat">Vat</label>
+            <input type="text" name="vat" id="vat" class="form-control" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="total">Total</label>
+            <input type="text" name="total" id="total" class="form-control" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="type">Client</label>
+            <select name="customerID" class="form-control">
+              <% customer.forEach((customer)=> {%>
+              <option value="<%= customer._id%>"><%= customer.Email%></option>
+              <%})%>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="type">Serveur</label>
+            <select name="waiter" class="form-control">
+              <% waiter.forEach((waiters)=> {%>
+              <option value="<%= waiters._id%>"><%= waiters.Fname%></option>
+              <%})%>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="type">Food</label>
+            <select name="food" class="form-control">
+              <% food.forEach((foods)=> {%>
+              <option value="<%= foods._id%>"><%= foods.Name%></option>
+              <%})%>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="type">Boisson</label>
+            <select name="drink" class="form-control">
+              <% drink.forEach((drinks)=> {%>
+              <option value="<%= drinks._id%>"><%= drinks.Name%></option>
+              <%})%>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="type">Table</label>
+            <select name="table" class="form-control">
+              <% table.forEach((tables)=> {%>
+              <option value="<%= tables._id%>"><%= tables.Name%></option>
+              <%})%>
+            </select>
+          </div>
+          <div class="form-group col-md-12">
+            <button type="submit" class="btn btn-primary">
+              Nouvel facture
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <%} else {%> <% if( customer == "" ) { %>
+      <div class="mt-3 text-center">
+        <p class="display-5 text-center">
+          Pas de clients ! pardon Ajouter
+          <a class="text-muted" href="/customer/new"> Nouveau</a>
+        </p>
+      </div>
+      <% } %> <% if( food == "" ) { %>
+      <div class="mt-3 text-center">
+        <p class="display-5 text-center">
+          Pas de nouriture ! pardon Ajouter
+          <a class="text-muted" href="/food/new"> Nouveau</a>
+        </p>
+      </div>
+      <% } %> <% if( waiter == "" ) { %>
+      <div class="mt-3 text-center">
+        <p class="display-5 text-center">
+          Pas de serveur ! pardon Ajouter
+          <a class="text-muted" href="/waiter/new"> Nouveau</a>
+        </p>
+      </div>
+      <% } %> <% if( drink == "" ) { %>
+      <div class="mt-3 text-center">
+        <p class="display-5 text-center">
+          Pas de boisson ! pardon Ajouter
+          <a class="text-muted" href="/drink/new"> Nouveau</a>
+        </p>
+      </div>
+      <% } %> <% if( table == "" ) { %>
+      <div class="mt-3 text-center">
+        <p class="display-5 text-center">
+          Pas de tables ! pardon Ajouter
+          <a class="text-muted" href="/table/new"> Nouveau</a>
+        </p>
+      </div>
+      <% } %> <% } %>
+    </div>
+  </div>
+</div>
+<%- include('../base/footer') -%>
